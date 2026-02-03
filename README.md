@@ -40,6 +40,41 @@ Primetrade/
 
 ---
 
+## .gitignore (how to create / use)
+
+A **`.gitignore`** file tells Git which files or folders **not** to track (so they never get committed).
+
+**This repo already has a root `.gitignore`** that ignores:
+
+- `node_modules/` (dependencies)
+- `dist/`, `build/` (build output)
+- **`.env`** (secrets — never commit this)
+- Logs, OS files (`.DS_Store`), editor configs (`.vscode/*`, `.idea/`)
+
+**How to create or edit `.gitignore`:**
+
+1. **Create at repo root** (e.g. `Primetrade/.gitignore`):
+   ```bash
+   cd Primetrade
+   touch .gitignore
+   ```
+   Or in VS Code: right‑click in Explorer → New File → `.gitignore`.
+
+2. **Add patterns** (one per line):
+   - `node_modules/` — ignore the whole folder
+   - `.env` — ignore env files with secrets
+   - `*.log` — ignore any file ending in `.log`
+   - `dist/` — ignore build output
+
+3. **Save** — Git will then ignore these files when you `git add` / `git commit`.
+
+**Check what’s ignored:**  
+`git status` won’t list ignored files. To see if a path is ignored:  
+`git check-ignore -v path/to/file`  
+(e.g. `git check-ignore -v Server/.env`).
+
+---
+
 ## Setup
 
 ### 1. Environment variables
